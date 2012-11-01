@@ -26,6 +26,12 @@ features inherent to the XML library to manipulate the data.)
   my $last-decr-class = $xq('.decr').last;
 ```
 
+## Status
+
+This is a work in progress. It's very much under construction and not
+much works yet. Currently everything that works and has been tested can
+be seen in the tests in the 't/' folder.
+
 ## Author
 
 [Timothy Totten](https://github.com/supernovus/)
