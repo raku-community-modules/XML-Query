@@ -22,8 +22,18 @@ method compile ($statement)
   XML::Query::Statement.new(:$statement, :parent(self));
 }
 
+method apply ($statement)
+{
+  self.compile($statement).apply($!xml);
+}
+
+method postcircumfix:<{ }> ($statement)
+{
+  self.apply($statement.join(' '));
+}
+
 method postcircumfix:<( )> ($statement)
 {
-  self.compile(~$statement).apply($!xml);
+  self.apply($statement.join(','));
 }
 

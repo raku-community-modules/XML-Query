@@ -37,7 +37,9 @@ method postcircumfix:<[ ]> ($offset)
 
 method results-xml
 {
-  XML::Element.craft('results', |@.results);
+  my $xml = XML::Element.craft('results');
+  $xml.nodes = @!results;
+  return $xml;
 }
 
 method find ($statement)

@@ -4,7 +4,7 @@
     <lower class="even" id="one.2" />
     <lower class="odd" id="one.3" />
   </upper>
-  <upper id="two">
+  <upper id="two" class="flagged">
     <lower class="odd" id="two.1" />
     <lower class="even" id="two.2" />
     <lower class="odd" id="two.3" />

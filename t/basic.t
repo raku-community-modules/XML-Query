@@ -8,7 +8,7 @@ use Test;
 use XML;
 use XML::Query;
 
-plan 25;
+plan 28;
 
 my $xml = from-xml(:file<./t/test1.xml>);
 my $xq = XML::Query.new($xml);
@@ -64,4 +64,12 @@ my $find-two-odd = $two.find('.odd');
 is $find-two-odd.WHAT.perl, 'XML::Query::Results', 'find returned results.';
 my @find-two-odd = $find-two-odd.elems;
 is_deeply @find-two-odd, @two-odd, 'find results are correct.';
+
+my $too-odd = $xq<.flagged .odd>;
+is $too-odd.WHAT.perl, 'XML::Query::Results', 'quoted word returns.';
+my @too-odd = $too-odd.elems;
+is @too-odd.elems, 2, 'quoted word returned correct number of elems.';
+
+my @too-ids = $xq('#one', '#three').elems;
+is @two-ids.elems, 2, 'queries using chained statements works.';
 
