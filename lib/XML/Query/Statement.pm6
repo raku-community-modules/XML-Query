@@ -49,7 +49,7 @@ method apply ($xml)
         if ! $pos.defined { last; }
         $expand = True;
       }
-      if $branch ~~ /'[' (<ident>) '=' (.*?) ']'/
+      if $branch ~~ /'[' (<ident>) '=' '"'? (.*?) '"'? ']'/
       {
         my $key = ~$0;
         my $val = ~$1;
