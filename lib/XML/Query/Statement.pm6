@@ -1,18 +1,15 @@
+use XML::Query::Results;
+
 class XML::Query::Statement;
 
-use XML;
-#use XML::Query::Result;
-
-has $.statement;
-
-multi method new ($statement)
-{
-  self.new(:$statement);
-}
+has $.statement;   ## The statement we represent.
+has $.parent;      ## The top-level XML::Query object.
 
 method apply ($xml)
 {
   my @results;
+
+  my $cattr = $.parent.class-attr;
 
   my @groups = $!statement.split(/','\s*/);
   for @groups -> $group
@@ -20,8 +17,10 @@ method apply ($xml)
     my @tree = $group.split(/\s+/);
     my $pos = $xml; ## We start from the root.
     my $expand = False;
+    my $recurse = 999;
     for @tree -> $branch
     {
+      if $branch eq '>' { $recurse = 0; next; }
       if $branch ~~ /^'#' (<ident>)/
       {
         my $id = ~$0;
@@ -34,9 +33,9 @@ method apply ($xml)
         my $class = ~$0;
         my %query =
         {
-          RECURSE => 999,
+          RECURSE => $recurse,
           OBJECT  => True,
-          'class' => $class,
+          $cattr  => $class,
         };
         $pos .= elements(|%query);
         if ! $pos.defined { last; }
@@ -55,7 +54,7 @@ method apply ($xml)
         my $val = ~$1;
         my %query =
         {
-          RECURSE => 999,
+          RECURSE => $recurse,
           OBJECT  => True,
           $key    => $val,
         };
@@ -63,6 +62,7 @@ method apply ($xml)
         if ! $pos.defined { last; }
         $expand = True;
       }
+      $recurse = 999;
     }
     if ! $pos.defined { next; }
     if $expand
@@ -74,6 +74,6 @@ method apply ($xml)
       @results.push: $pos;
     }
   }
-  return @results; ## TODO: return an XML::Query::Result object.
+  return XML::Query::Results.new(:@results, :parent(self));
 }
 

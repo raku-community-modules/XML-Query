@@ -6,11 +6,6 @@ XML::Query is a jQuery-like XML query engine for Perl 6.
 It works with the [XML](https://github.com/supernovus/exemel) library 
 to provide a flexible and easy method of querying for specific XML/XHTML nodes.
 
-I haven't fully mapped out the full spec for this, but the idea is to have
-chainable queries. To do this, the XML::Query object will return
-XML::Query::Result objects, which in turn support certain sub-queries,
-such as 'not', 'first', 'last', 'eq', 'closest', 'children', 'parent', etc.
-
 Unlike jQuery, XML::Query is for querying and travsersing XML structures only, 
 and does not support direct manipulation of XML data (however you can use the
 features inherent to the XML library to manipulate the data.)
@@ -20,17 +15,17 @@ features inherent to the XML library to manipulate the data.)
 ```perl
   ## Given $xml is an XML::Document or XML::Element object.
   my $xq = XML::Query.new($xml);
-  my @radio-boxes = $xq('input[type="radio"]').not(':first').elems;
-  my $first-link = $xq('a').first;
+  my @boxes = $xq('input[type="radio"]').not('[disabled="disabled"]').elems;
+  my $first-link = $xq('a').first.elem; 
   my $by-id = $xq('#header').elem;
-  my $last-decr-class = $xq('.decr').last;
+  my $last-decr-class = $xq('.decr').last.elem; 
 ```
 
 ## Status
 
-This is a work in progress. It's very much under construction and not
-much works yet. Currently everything that works and has been tested can
-be seen in the tests in the 't/' folder.
+This is a work in progress. It doesn't support many methods or selectors yet,
+and there is no documentation. See the tests in the "t/" folder for examples
+of what does work so far.
 
 ## Author
 
