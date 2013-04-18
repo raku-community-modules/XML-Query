@@ -10,7 +10,7 @@ use XML::Query;
 
 plan 28;
 
-my $xml = from-xml(:file<./t/test1.xml>);
+my $xml = from-xml-file('./t/test1.xml');
 my $xq = XML::Query.new($xml);
 
 my $bar = $xq('#two');
