@@ -11,6 +11,7 @@ multi method new (XML::Element $xml, *%opts)
 {
   self.new(:$xml, |%opts);
 }
+
 multi method new (XML::Document $doc, *%opts)
 {
   my $xml = $doc.root;
