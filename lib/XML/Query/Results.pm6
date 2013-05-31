@@ -30,7 +30,7 @@ method last
   self!spawn(@!results[@!results.end]);
 }
 
-method postcircumfix:<[ ]> ($offset)
+method at_pos ($offset)
 {
   self!spawn(@!results[$offset]);
 }

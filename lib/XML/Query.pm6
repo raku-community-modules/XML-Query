@@ -28,7 +28,7 @@ method apply ($statement)
   self.compile($statement).apply($!xml);
 }
 
-method postcircumfix:<{ }> ($statement)
+method at_key ($statement)
 {
   self.apply($statement.join(' '));
 }
