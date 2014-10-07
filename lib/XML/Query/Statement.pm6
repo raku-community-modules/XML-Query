@@ -32,11 +32,11 @@ method apply ($xml)
       {
         my $class = ~$0;
         my %query =
-        {
+        %(
           RECURSE => $recurse,
           OBJECT  => True,
           $cattr  => $class,
-        };
+        );
         $pos .= elements(|%query);
         if ! $pos.defined { last; }
         $expand = True;
@@ -53,11 +53,11 @@ method apply ($xml)
         my $key = ~$0;
         my $val = ~$1;
         my %query =
-        {
+        %(
           RECURSE => $recurse,
           OBJECT  => True,
           $key    => $val,
-        };
+        );
         $pos .= elements(|%query);
         if ! $pos.defined { last; }
         $expand = True;
