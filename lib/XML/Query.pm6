@@ -1,8 +1,7 @@
 use XML;
+use XML::Query::Statement;
 
 unit class XML::Query;
-
-use XML::Query::Statement;
 
 has $.xml;
 has $.class-attr = 'class';
