@@ -2,8 +2,8 @@
 
 ## Introduction
 
-XML::Query is a jQuery-like XML query engine for Perl 6.
-It works with the [XML](https://github.com/supernovus/exemel) library 
+XML::Query is a jQuery-like XML query engine for Raku.
+It works with the [XML](https://github.com/raku-community-modules/XML) library 
 to provide a flexible and easy method of querying for specific XML/XHTML nodes.
 
 Unlike jQuery, XML::Query is for querying and travsersing XML structures only, 
@@ -12,7 +12,7 @@ features inherent to the XML library to manipulate the data.)
 
 ## Synopsis
 
-```perl
+```raku
   ## Given $xml is an XML::Document or XML::Element object.
   my $xq = XML::Query.new($xml);
   my @boxes = $xq('input[type="radio"]').not('[disabled="disabled"]').elements;
