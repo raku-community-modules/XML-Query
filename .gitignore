@@ -1,3 +1,2 @@
-Makefile
-blib/
-lib/.precomp
+.precomp/
+/XML-Query-*
