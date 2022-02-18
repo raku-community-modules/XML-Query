@@ -1,37 +1,49 @@
-# XML::Query
+[![Actions Status](https://github.com/raku-community-modules/XML-Query/workflows/test/badge.svg)](https://github.com/raku-community-modules/XML-Query/actions)
 
-## Introduction
+NAME
+====
 
-XML::Query is a jQuery-like XML query engine for Raku.
-It works with the [XML](https://github.com/raku-community-modules/XML) library 
-to provide a flexible and easy method of querying for specific XML/XHTML nodes.
+ZML::Query - jQuery-like node selecting and traversing for XML
 
-Unlike jQuery, XML::Query is for querying and travsersing XML structures only, 
-and does not support direct manipulation of XML data (however you can use the
-features inherent to the XML library to manipulate the data.)
-
-## Synopsis
+SYNOPSIS
+========
 
 ```raku
-  ## Given $xml is an XML::Document or XML::Element object.
-  my $xq = XML::Query.new($xml);
-  my @boxes = $xq('input[type="radio"]').not('[disabled="disabled"]').elements;
-  my $first-link = $xq('a').first.element; 
-  my $by-id = $xq('#header').element;
-  my $last-decr-class = $xq('.decr').last.element; 
+use XML::Query;
+
+## Given $xml is an XML::Document or XML::Element object.
+my $xq = XML::Query.new($xml);
+my @boxes = $xq('input[type="radio"]').not('[disabled="disabled"]').elements;
+my $first-link = $xq('a').first.element; 
+my $by-id = $xq('#header').element;
+my $last-decr-class = $xq('.decr').last.element;
 ```
 
-## Status
+DESCRIPTION
+===========
 
-This is a work in progress. It doesn't support many methods or selectors yet,
-and there is no documentation. See the tests in the "t/" folder for examples
-of what does work so far.
+XML::Query is a jQuery-like XML query engine for Raku. It works with the [XML](https://github.com/raku-community-modules/XML) library to provide a flexible and easy method of querying for specific XML/XHTML nodes.
 
-## Author
+Unlike jQuery, `XML::Query` is for querying and travsersing XML structures only, and does not support direct manipulation of XML data (however you can use the features inherent to the XML library to manipulate the data.)
 
-[Timothy Totten](https://github.com/supernovus/)
+STATUS
+======
 
-## License
+This is a work in progress. It doesn't support many methods or selectors yet, and there is no documentation. See the tests in the "t/" folder for examples of what does work so far.
 
-[Artistic License 2.0](http://www.perlfoundation.org/artistic_license_2_0)
+AUTHOR
+======
+
+Timothy Totten
+
+Source can be located at: https://github.com/raku-community-modules/XML-Query . Comments and Pull Requests are welcome.
+
+COPYRIGHT AND LICENSE
+=====================
+
+Copyright 2012 - 2017 Timothy Totten
+
+Copyright 2018 - 2022 Raku Community
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

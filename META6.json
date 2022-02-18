@@ -1,16 +1,28 @@
 {
-  "author" : "Timoty Totten",
-  "auth" : "zef:raku-community-modules",
-  "perl"        : "6.*",
-  "name"        : "XML::Query",
-  "version"     : "1.0",
-  "description" : "jQuery-like node selecting and traversing for XML",
-  "depends"     : ["XML"],
-  "provides"    : {
-    "XML::Query"             : "lib/XML/Query.rakumod",
-    "XML::Query::Results"    : "lib/XML/Query/Results.rakumod",
-    "XML::Query::Statement"  : "lib/XML/Query/Statement.rakumod"
+  "auth": "zef:raku-community-modules",
+  "author": "Timoty Totten",
+  "build-depends": [
+  ],
+  "depends": [
+    "XML"
+  ],
+  "description": "jQuery-like node selecting and traversing for XML",
+  "license": "Artistic-2.0",
+  "name": "XML::Query",
+  "perl": "6.*",
+  "provides": {
+    "XML::Query": "lib/XML/Query.rakumod",
+    "XML::Query::Results": "lib/XML/Query/Results.rakumod",
+    "XML::Query::Statement": "lib/XML/Query/Statement.rakumod"
   },
-  "source-url"  : "git://github.com/raku-community-modules/XML-Query.git",
-  "tags" : [ "XML", "QUERY" ]
+  "resources": [
+  ],
+  "source-url": "git://github.com/raku-community-modules/XML-Query.git",
+  "tags": [
+    "XML",
+    "QUERY"
+  ],
+  "test-depends": [
+  ],
+  "version": "1.0"
 }
