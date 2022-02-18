@@ -33,7 +33,7 @@ method CALL-ME($statement) {
 
 =head1 NAME
 
-ZML::Query - jQuery-like node selecting and traversing for XML
+XML::Query - jQuery-like node selecting and traversing for XML
 
 =head1 SYNOPSIS
 

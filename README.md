@@ -3,7 +3,7 @@
 NAME
 ====
 
-ZML::Query - jQuery-like node selecting and traversing for XML
+XML::Query - jQuery-like node selecting and traversing for XML
 
 SYNOPSIS
 ========
