@@ -1,6 +1,8 @@
 Revision history for XML-Query
 
 {{$NEXT}}
+
+1.1  2024-11-30T20:50:28+01:00
     - Add CI badge for each PS
 
 1.0  2022-02-18T17:45:27+01:00

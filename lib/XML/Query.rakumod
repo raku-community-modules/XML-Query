@@ -1,7 +1,7 @@
 use XML;
 use XML::Query::Statement;
 
-unit class XML::Query:ver<1.0>:auth<zef:raku-community-modules>;
+unit class XML::Query:ver<1.1>:auth<zef:raku-community-modules>;
 has $.xml;
 has $.class-attr = 'class';
 
